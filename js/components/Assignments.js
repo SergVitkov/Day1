@@ -52,15 +52,15 @@ export default {
     },
 
     methods: {
-        add(newAssignmentName) {
-            const newAssignment = {
-                name: newAssignmentName,
-                complete: false,
-                tag: this.currentTag,
-                id: this.assignments.length > 0 ? Math.max(...this.assignments.map(a => a.id)) + 1 : 1
-            };
-    
-            this.assignments.push(newAssignment);
+        add() {
+            console.log('Adding assignment:', {
+                assignment: this.newAssignment,
+                currentTag: this.currentTag
+            });
+            if (this.newAssignment.trim() && this.currentTag !== 'all') {
+                this.$emit('add', this.newAssignment);
+                this.newAssignment = '';
+            }
         }
     }
-};   
+};
