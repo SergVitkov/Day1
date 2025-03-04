@@ -55,8 +55,8 @@ export default {
                 tag: this.currentTag,
                 id: this.assignments.length > 0 ? Math.max(...this.assignments.map(a => a.id)) + 1 : 1
             };
-
+    
             this.assignments.push(newAssignment);
         }
     }
-};
+};   
