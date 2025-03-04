@@ -6,9 +6,13 @@ export default {
 
     template: `
         <section class="flex gap-8">
-            <assignment-list :assignments="filters.inProgress" title="In Progress" v-model:currentTag="currentTag">
-                <assignment-create @add="add" :currentTag="currentTag"></assignment-create>
-            </assignment-list>
+        <assignment-list :assignments="filters.inProgress" title="In Progress" v-model:currentTag="currentTag">
+            <assignment-create 
+                :current-tag="currentTag"
+                @add="add"
+            ></assignment-create>
+        </assignment-list>
+    </section>
 
             <div v-show="showCompleted">
                 <assignment-list
